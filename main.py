@@ -21,6 +21,10 @@ def try_to_click(css_selector):
         button.click()
 
 
+# We will first ask the user for a facebook email and account, to log in.
+user_email = input("Insert an email: ")
+user_password = input("Insert a password: ")
+
 chrome_driver_path = './ChromeDriver/chromedriver'
 service = Service(executable_path=chrome_driver_path)
 driver = webdriver.Chrome(service=service)
@@ -52,9 +56,15 @@ accept_cookies_button.click()
 time.sleep(2)
 
 fb_email = driver.find_element(By.ID, 'email')
-fb_email.send_keys(os.environ["EMAIL"])
+fb_email.send_keys(user_email)
+# Another possibility is to add those variables to the environment.
+# fb_email.send_keys(os.environ["EMAIL"])
+
+
 fb_pass = driver.find_element(By.ID, 'pass')
-fb_pass.send_keys(os.environ["PASSWORD"])
+fb_pass.send_keys(user_password)
+# fb_pass.send_keys(os.environ["PASSWORD"])
+
 log_fb_button = driver.find_element(By.NAME, 'login')
 log_fb_button.click()
 
