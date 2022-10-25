@@ -3,7 +3,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import NoSuchElementException, ElementClickInterceptedException, \
     ElementNotInteractableException, StaleElementReferenceException
-import os
+# import os
 import random
 import time
 
